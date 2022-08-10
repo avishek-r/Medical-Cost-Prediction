@@ -1,5 +1,6 @@
 from flask import Flask, request, url_for, redirect, render_template
 import pickle
+import os
 
 import numpy as np
 
@@ -30,6 +31,6 @@ def predict():
         return render_template('result.html', pred='Error!! please try again')
     else:
         return render_template('result.html', pred='Expected amount is {0:.3f}'.format(pred))
-
+port = int(os.environ.get('PORT', 5000))
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=port, debug=True)
