@@ -5,7 +5,7 @@ import numpy as np
 
 app = Flask(__name__, template_folder='./templates', static_folder='./static')
 
-filename = "model.pkl" 
+filename = "./models/model.pkl" 
 with open(filename, 'rb') as file:  
     model = pickle.load(file)
 @app.route('/')
